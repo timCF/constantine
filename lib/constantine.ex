@@ -3,6 +3,26 @@ defmodule Constantine do
   defmacro const(type, {:@, meta, [{attr_name, attr_meta, [expression]}]}) do
     {:@, meta, [{attr_name, attr_meta, [generate_typecheck(type, expression, attr_name)]}]}
   end
+  defmacro const(type, {name, _, [expression]}) do
+    {result, _} = generate_typecheck(type, expression, name) |> Code.eval_quoted
+    quote do
+      defmacro unquote(name)() do
+        unquote(result)
+      end
+    end
+  end
+
+  defmacro constp(type, {:@, meta, [{attr_name, attr_meta, [expression]}]}) do
+    {:@, meta, [{attr_name, attr_meta, [generate_typecheck(type, expression, attr_name)]}]}
+  end
+  defmacro constp(type, {name, _, [expression]}) do
+    {result, _} = generate_typecheck(type, expression, name) |> Code.eval_quoted
+    quote do
+      defmacrop unquote(name)() do
+        unquote(result)
+      end
+    end
+  end
 
   defp generate_typecheck(type, expression, attr_name) do
     typecheck_code =
