@@ -20,7 +20,7 @@ defmodule Constantine.Mixfile do
       ],
       # Docs
       name: "Constantine",
-      docs: [main: "README", extras: ["README.md"]],
+      docs: [main: "readme", extras: ["README.md"]],
     ]
   end
 
