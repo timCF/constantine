@@ -7,7 +7,17 @@ defmodule Constantine.Mixfile do
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
-      deps: deps()
+      deps: deps(),
+      description: "Type-safe constants in Elixir",
+      source_url: "https://github.com/timCF/constantine/",
+      package: [
+        licenses: ["Apache 2.0"],
+        maintainers: ["Ilja Tkachuk aka timCF"],
+        links: %{
+          "GitHub" => "https://github.com/timCF/constantine/",
+          "Author's home page" => "https://timcf.github.io/"
+        }
+      ]
     ]
   end
 
