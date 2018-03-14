@@ -35,4 +35,11 @@ defmodule ConstantineTest do
     refute ConstantineTest.External.__info__(:macros) |> Keyword.has_key?(:constp_macro)
   end
 
+  const :regex, @my_regex ~r/123/
+  test "regex" do
+    assert Regex.regex?(@my_regex)
+    assert Regex.match?(@my_regex, "hello 123 world")
+    assert not Regex.match?(@my_regex, "hello world") 
+  end
+
 end

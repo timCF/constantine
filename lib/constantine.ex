@@ -48,6 +48,7 @@ defmodule Constantine do
         :list -> quote do is_list(result) end
         :tuple -> quote do is_tuple(result) end
         :keyword -> quote do Keyword.keyword?(result) end
+        :regex -> quote do Regex.regex?(result) end
         # enum
         {:enum, values = [_|_]} -> quote do Enum.member?(unquote(values), result) end
         # default
