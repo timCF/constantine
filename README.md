@@ -23,6 +23,7 @@ How many times you suffered from runtime errors when your application depends on
 :list
 :tuple
 :keyword
+:regex
 {:enum, values = [_|_]}
 ```
 
