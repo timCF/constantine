@@ -28,6 +28,7 @@ defmodule Constantine do
     typecheck_code =
       case type do
         # base types
+        :boolean -> quote do is_boolean(result) end
         :atom -> quote do is_atom(result) and (result != nil) end
         :binary -> quote do is_binary(result) and (result != "") end
         :string -> quote do String.valid?(result) and (result != "") end

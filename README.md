@@ -7,6 +7,7 @@ Type-safe macro to define constants in Elixir language. All expressions and chec
 How many times you suffered from runtime errors when your application depends on external system env, configs, files? Forgot to configure env variables before production build and your application crashed in a random unpredictable runtime moment? Compiler is your friend, so let him to check your env. Forget runtime errors because missing or wrong configuration! Define constants like a ninja using `const/2` and `constp/2` macro. The first argument is type and the second is module attribute / macro expression what produces value of given type. Below you can find list of supported types. **Empty string and nil are not allowed as const.**
 
 ```
+:boolean
 :atom
 :binary
 :string

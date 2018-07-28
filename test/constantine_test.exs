@@ -39,7 +39,14 @@ defmodule ConstantineTest do
   test "regex" do
     assert Regex.regex?(@my_regex)
     assert Regex.match?(@my_regex, "hello 123 world")
-    assert not Regex.match?(@my_regex, "hello world") 
+    assert not Regex.match?(@my_regex, "hello world")
+  end
+
+  const :boolean, @boolean_true (1 == 1)
+  const :boolean, @boolean_false (1 == 2)
+  test "boolean" do
+    assert true == @boolean_true
+    assert false == @boolean_false
   end
 
 end
